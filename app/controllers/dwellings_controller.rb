@@ -1,5 +1,4 @@
 class DwellingsController < ApplicationController
-
   def index
     @dwellings = Dwelling.all
   end
