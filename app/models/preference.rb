@@ -20,13 +20,13 @@ class Preference < ActiveRecord::Base
     ["Yes", 1],
     ["No Preference", 0],
     ["No", -1],
-  ]
+  ].freeze
 
   GENDER = [
     ["Male", "male"],
     ["Female", "female"],
     ["Unsure", "unsure"],
-  ]
+  ].freeze
 
   def full_name
     @full_name = "#{first_name} #{last_name}"

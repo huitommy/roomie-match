@@ -22,20 +22,20 @@ class PreferencesController < ApplicationController
 
   def preference_params
     params.require(:preference).permit(
-    :pets,
-    :smoking,
-    :drinking,
-    :music,
-    :vegetarian,
-    :cleanliness,
-    :parties,
-    :sports,
-    :first_name,
-    :last_name,
-    :date_of_birth,
-    :gender,
-    :user_id,
-    :dwelling_id
+      :pets,
+      :smoking,
+      :drinking,
+      :music,
+      :vegetarian,
+      :cleanliness,
+      :parties,
+      :sports,
+      :first_name,
+      :last_name,
+      :date_of_birth,
+      :gender,
+      :user_id,
+      :dwelling_id
     )
   end
 end
