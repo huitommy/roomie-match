@@ -5,11 +5,7 @@ class User < ActiveRecord::Base
         :recoverable, :rememberable, :trackable,
         :validatable, :authentication_keys => [:login]
   has_many :preferences
-
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :gender, presence: true
-  validates :dob, presence: true
+  
   validates :email, presence: true, uniqueness: true
   validates :username,
     presence: true,
@@ -22,10 +18,6 @@ class User < ActiveRecord::Base
     if User.where(email: username).exists?
       errors.add(:username, :invalid)
     end
-  end
-
-  def full_name
-    @full_name = "#{first_name} #{last_name}"
   end
 
   def login=(login)
