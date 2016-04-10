@@ -15,23 +15,24 @@ feature 'sign up' do
   end
 
   scenario 'required information is not supplied' do
-    vist root_path
+    visit root_path
     click_link 'Sign Up'
     click_button 'Sign Up'
 
-    expect(page).to have_content("can't be blankl")
+    expect(page).to have_content("can't be blank")
     expect(page).to_not have_content("Sign Out")
   end
 
   scenario 'password confirmation does not match password' do
     visit root_path
     click_link 'Sign Up'
-
+    fill_in "Username", with: 'User1'
+    fill_in "Email", with: 'user@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password Confirmation', with: 'notpassword'
 
     click_button 'Sign Up'
     expect(page).to have_content("doesn't match")
-    expect(page).to have_content("Sign Up")
+    expect(page).to have_content("Log in")
   end
 end
