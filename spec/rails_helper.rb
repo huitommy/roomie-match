@@ -4,6 +4,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'coveralls'
+require 'capybara/rails'
+require 'capybara/rspec'
 Coveralls.wear!('rails')
 
 ActiveRecord::Migration.maintain_test_schema!
@@ -17,7 +19,7 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  # RSpec Rails can automatically mix in different behaviours to your tests
+  # RSpec Rails can automaticall  y mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
   #
