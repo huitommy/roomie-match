@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :preferences, only: [:new, :create]
+
+  resources :dwellings, only: [:index]
 end

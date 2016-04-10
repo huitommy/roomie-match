@@ -25,16 +25,16 @@ FactoryGirl.define do
   end
 
   factory :dwelling do
-    address "Address St."
+    address "Address at."
     city "testcity"
     state "teststate"
     zip_code "00000"
-    type "Apartment"
+    category "Apartment"
     bedrooms "2"
     bathrooms "1.5"
     sq_ft "777"
     rent "1000"
-    parking "false"
+    parking true
   end
 
   factory :admin do

@@ -6,7 +6,9 @@ class PreferencesController < ApplicationController
   end
 
   def create
-    @preference = Preference.new(preference_params)
+    @dropdown = Preference::DROPDOWN
+    @gender = Preference::GENDER
+    @preference = current_user.preferences.build(preference_params)
     if @preference.save
       flash[:notice] = "Profile Created"
       redirect_to dwellings_path

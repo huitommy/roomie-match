@@ -2,6 +2,10 @@ class Preference < ActiveRecord::Base
   belongs_to :user
   belongs_to :dwelling
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :date_of_birth, presence: true
+  validates :gender, presence: true
   validates :pets, presence: true
   validates :smoking, presence: true, numericality: true, inclusion: { in: -1..1 }
   validates :drinking, presence: true, numericality: true, inclusion: { in: -1..1 }
@@ -11,8 +15,6 @@ class Preference < ActiveRecord::Base
   validates :parties, presence: true, numericality: true, inclusion: { in: -1..1 }
   validates :sports, presence: true, numericality: true, inclusion: { in: -1..1 }
   validates :user, presence: true
-  validates :gender, presence: true
-  validates :dob, presence: true
 
   DROPDOWN = [
     ["Yes", 1],
