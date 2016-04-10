@@ -1,49 +1,38 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'User creates preference profile' do
+feature "new user creates preference profile" do
 
   context "user is signed in" do
     before(:each) do
-      FactoryGirl.create(:user)
-      visit '/users/sign_in'
-      fill_in 'Email', with: 'user@gmail.com'
-      fill_in 'Password', with: 'password'
-      click_on 'Log in'
+      user = FactoryGirl.create(:user)
+      visit "/users/sign_in"
+      fill_in "Login", with: user.email
+      fill_in "Password", with: user.password
+      click_on "Log in"
     end
 
-    scenario 'User visits page with new elevator form and fills it out correctly' do
-      click_link 'Add Elevator'
-      fill_in 'Building name', with: 'test'
-      fill_in 'Address', with: 'test street'
-      fill_in 'City', with: 'teston'
-      fill_in 'Zipcode', with: '02142'
-      fill_in 'State', with: 'ta'
-      click_on 'Create Elevator'
+    scenario "successfully creates profile" do
+      dwelling = FactoryGirl.create(:dwelling)
 
-      expect(page).to have_content('You have successfully added an elevader!')
-      expect(page).to have_content('test')
+      click_link "Create Profile"
+      fill_in "First Name", with: "Evana"
+      fill_in "Last Name", with: "Louden"
+      fill_in "preference_date_of_birth", with: "2014/01/01"
+      select "Female", from: "Gender"
+      select "Yes", from: "Pets"
+      select "Yes", from: "Smoking"
+      select "Yes", from: "Drinking"
+      select "Yes", from: "Music"
+      select "Yes", from: "Vegetarian"
+      select "Yes", from: "Cleanliness"
+      select "Yes", from: "Parties"
+      select "Yes", from: "Sports"
+      click_on "Save Profile"
+
+      expect(page).to have_content("Profile Created")
+      expect(page).to have_content(dwelling.city)
+      expect(page).to have_content(dwelling.bedrooms)
+      expect(page).to have_content(dwelling.rent)
     end
-
-    scenario 'User visits page with new elevader form and fills out incorrectly' do
-      click_link 'Add Elevator'
-      fill_in 'Address', with: 'test street'
-      fill_in 'City', with: 'teston'
-      fill_in 'Zipcode', with: '02142'
-      fill_in 'State', with: 'ta'
-      click_on 'Create Elevator'
-
-      expect(page).to have_content("Building name can't be blank")
-      expect(page).to_not have_content('test')
-      expect(page).to have_selector("input[value='test street']")
-      expect(page).to have_selector("input[value='ta']")
-      expect(page).to have_selector("input[value ='02142']")
-    end
-  end
-
-  scenario 'User is not logged in and tries to submit a new elevator form' do
-    visit '/'
-    click_link 'Add Elevator'
-
-    expect(page).to have_content('You need to sign in or sign up before continuing.')
   end
 end
