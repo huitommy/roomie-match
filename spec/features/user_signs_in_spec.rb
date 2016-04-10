@@ -37,7 +37,6 @@ feature 'user signs in' do
     fill_in 'Login', with: @user.email
     fill_in 'Password', with: @user.password
     click_button 'Sign In'
-     
     visit new_user_session_path
 
     expect(page).to have_content('Sign Out')
