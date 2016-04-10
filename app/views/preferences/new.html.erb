@@ -1,0 +1,67 @@
+<h1>Profile</h1>
+
+<%= form_for(@preference) do |f| %>
+  <div class= "field">
+    <%= f.label :first_name, "First Name" %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :last_name, "Last Name" %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :date_of_birth, "Date of Birth" %>
+    <%= f.text_field :date_of_birth %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :gender %>
+    <%= f.select :gender, options_for_select(@gender) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :pets %>
+    <%= f.select :pets, options_for_select(@dropdown) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :smoking %>
+    <%= f.select :smoking, options_for_select(@dropdown) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :drinking %>
+    <%= f.select :drinking, options_for_select(@dropdown) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :music %>
+    <%= f.select :music, options_for_select(@dropdown) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :vegetarian %>
+    <%= f.select :vegetarian, options_for_select(@dropdown) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :cleanliness %>
+    <%= f.select :cleanliness, options_for_select(@dropdown) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :parties %>
+    <%= f.select :parties, options_for_select(@dropdown) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :sports %>
+    <%= f.select :sports, options_for_select(@dropdown) %>
+  </div>
+
+  <div class= "actions">
+    <%= f.submit%>
+  </div>
+<% end %>
