@@ -10,10 +10,12 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'capybara'
 end
 
 group :development do
@@ -23,4 +25,5 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'factory_girl_rails', '~> 4.0'
 end
