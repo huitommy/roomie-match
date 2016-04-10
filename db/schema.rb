@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410152424) do
+ActiveRecord::Schema.define(version: 20160410182606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,22 +30,24 @@ ActiveRecord::Schema.define(version: 20160410152424) do
   end
 
   create_table "preferences", force: :cascade do |t|
-    t.boolean "pets",        default: false
-    t.integer "smoking",                     null: false
-    t.integer "drinking",                    null: false
-    t.integer "music",                       null: false
-    t.integer "vegetarian",                  null: false
-    t.integer "cleanliness",                 null: false
-    t.integer "parties",                     null: false
-    t.integer "sports",                      null: false
-    t.integer "user_id",                     null: false
+    t.boolean "pets",          default: false
+    t.integer "smoking",                       null: false
+    t.integer "drinking",                      null: false
+    t.integer "music",                         null: false
+    t.integer "vegetarian",                    null: false
+    t.integer "cleanliness",                   null: false
+    t.integer "parties",                       null: false
+    t.integer "sports",                        null: false
+    t.integer "user_id",                       null: false
     t.integer "dwelling_id"
+    t.string  "first_name",                    null: false
+    t.string  "last_name",                     null: false
+    t.string  "gender",                        null: false
+    t.date    "date_of_birth",                 null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                            null: false
-    t.string   "gender",                              null: false
-    t.date     "date_of_birth",                       null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

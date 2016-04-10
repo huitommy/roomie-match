@@ -11,4 +11,11 @@ class Preferences < ActiveRecord::Base
   validates :parties, presence: true, numericality: true, inclusion: { in: -1..1 }
   validates :sports, presence: true, numericality: true, inclusion: { in: -1..1 }
   validates :user, presence: true
+  validates :gender, presence: true
+  validates :dob, presence: true
+
+
+  def full_name
+    @full_name = "#{first_name} #{last_name}"
+  end
 end
