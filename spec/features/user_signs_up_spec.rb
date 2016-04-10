@@ -5,9 +5,7 @@ feature 'sign up' do
     visit root_path
     click_link "Sign Up"
     fill_in "Username", with: 'User1'
-    select('Male', from: 'Gender')
-    fill_in "Date Of Birth", with: 1/1/1980
-    fill_in "Email", with:'user@example.com'
+    fill_in "Email", with: 'user@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password Confirmation', with: 'password'
     click_button 'Sign Up'
