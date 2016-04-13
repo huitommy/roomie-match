@@ -1,4 +1,5 @@
 class Preference < ActiveRecord::Base
+  
   belongs_to :user
   belongs_to :dwelling
 
@@ -14,7 +15,7 @@ class Preference < ActiveRecord::Base
   validates :cleanliness, presence: true, numericality: true, inclusion: { in: -1..1 }
   validates :parties, presence: true, numericality: true, inclusion: { in: -1..1 }
   validates :sports, presence: true, numericality: true, inclusion: { in: -1..1 }
-  validates :user, presence: true
+  validates :user, presence: true, uniqueness: true
 
   DROPDOWN = [
     ["Yes", 1],

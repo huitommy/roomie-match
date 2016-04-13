@@ -1,5 +1,5 @@
 class Dwelling < ActiveRecord::Base
-  has_many :preferences
+  has_one :preference
 
   validates :address, presence: true
   validates :city, presence: true
