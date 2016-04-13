@@ -16,6 +16,12 @@
       <div class="container">
         <div class="column">
           <div class="small-11 medium-9 large-7 columns">
+            <% if notice %>
+          <div class="callout success">
+            <%= notice %></div>
+            <% elsif alert %>
+          <div class="callout alert"><%= alert %></div>
+          <% end %>
             <%= yield %>
           </div>
         </div>
