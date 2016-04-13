@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Roomiematch</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-<%= yield %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-</body>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="container">
+        <div class="column">
+          <div class="small-11 medium-9 large-7 columns">
+            <% if notice %>
+          <div class="callout success">
+            <%= notice %></div>
+            <% elsif alert %>
+          <div class="callout alert"><%= alert %></div>
+          <% end %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
