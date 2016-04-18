@@ -24,7 +24,7 @@ Preference.create(
   last_name: Faker::Name.last_name,
   gender: genders.sample,
   date_of_birth: Faker::Date.backward(20000)
-  )
+)
 Dwelling.create(
   address: Faker::Address.street_address,
   city: Faker::Address.city,
@@ -36,5 +36,5 @@ Dwelling.create(
   sq_ft: [500, 1000, 1500, 2000].sample,
   rent: [500, 600, 700, 800, 900, 1000].sample,
   parking: booleans.sample
-  )
+)
 end
