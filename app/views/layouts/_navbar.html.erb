@@ -12,9 +12,13 @@
       <% if current_user %>
         <li><%= link_to "Profile", edit_user_registration_path %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-        <% unless current_user.preference.nil? %>
-          <li><%= link_to "Edit Profile", edit_preference_path(current_user.preference.id) %></li>
+        <% if !current_user.preference.nil? %>
+          <li><%= link_to "Edit Profile", edit_preference_path(current_user.preference) %></li>
+        <% end %>
+        <% if current_user.dwelling.nil? %>
           <li><%= link_to "Create Listing", new_dwelling_path %></li>
+        <% else %>
+          <li><%= link_to "Edit Listing", edit_dwelling_path(current_user.dwelling) %></li>
         <% end %>
       <% else %>
         <li><%= link_to "Sign In", new_user_session_path %></li>
@@ -22,5 +26,4 @@
       <% end %>
     </ul>
   </section>
-
 </nav>
