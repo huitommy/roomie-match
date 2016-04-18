@@ -1,0 +1,55 @@
+<%= form_for(@dwelling) do |f| %>
+  <div class= "field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :state %>
+    <%= f.select :state, options_for_select(@states, @dwelling.state) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :zip_code, "Zip Code" %>
+    <%= f.text_field :zip_code %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :category, "Home Type" %>
+    <%= f.select :category, options_for_select(@categories, @dwelling.category) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :bedrooms %>
+    <%= f.select :bedrooms, options_for_select(@bedrooms, @dwelling.bedrooms) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :bathrooms %>
+    <%= f.select :bathrooms, options_for_select(@bathrooms, @dwelling.bathrooms) %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :sq_ft, "Square Feet" %>
+    <%= f.text_field :sq_ft %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :rent %>
+    <%= f.text_field :rent %>
+  </div>
+
+  <div class= "field">
+    <%= f.label :parking %>
+    <%= f.select :parking, options_for_select(@truefalse, @dwelling.parking) %>
+  </div>
+
+  <div class= "actions">
+    <%= f.submit "Save Listing" %>
+  </div>
+<% end %>

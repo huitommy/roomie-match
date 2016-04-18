@@ -16,47 +16,47 @@
 
   <div class= "field">
     <%= f.label :gender %>
-    <%= f.select :gender, options_for_select(@gender) %>
+    <%= f.select :gender, options_for_select(@gender, @preference.gender) %>
   </div>
 
   <div class= "field">
     <%= f.label :pets %>
-    <%= f.select :pets, options_for_select(@dropdown) %>
+    <%= f.select :pets, options_for_select(@truefalse, @preference.pets) %>
   </div>
 
   <div class= "field">
     <%= f.label :smoking %>
-    <%= f.select :smoking, options_for_select(@dropdown) %>
+    <%= f.select :smoking, options_for_select(@dropdown, @preference.smoking) %>
   </div>
 
   <div class= "field">
     <%= f.label :drinking %>
-    <%= f.select :drinking, options_for_select(@dropdown) %>
+    <%= f.select :drinking, options_for_select(@dropdown, @preference.drinking) %>
   </div>
 
   <div class= "field">
     <%= f.label :music %>
-    <%= f.select :music, options_for_select(@dropdown) %>
+    <%= f.select :music, options_for_select(@dropdown, @preference.music) %>
   </div>
 
   <div class= "field">
     <%= f.label :vegetarian %>
-    <%= f.select :vegetarian, options_for_select(@dropdown) %>
+    <%= f.select :vegetarian, options_for_select(@dropdown, @preference.vegetarian) %>
   </div>
 
   <div class= "field">
     <%= f.label :cleanliness %>
-    <%= f.select :cleanliness, options_for_select(@dropdown) %>
+    <%= f.select :cleanliness, options_for_select(@dropdown, @preference.cleanliness) %>
   </div>
 
   <div class= "field">
     <%= f.label :parties %>
-    <%= f.select :parties, options_for_select(@dropdown) %>
+    <%= f.select :parties, options_for_select(@dropdown, @preference.parties) %>
   </div>
 
   <div class= "field">
     <%= f.label :sports %>
-    <%= f.select :sports, options_for_select(@dropdown) %>
+    <%= f.select :sports, options_for_select(@dropdown, @preference.sports) %>
   </div>
 
   <div class= "actions">

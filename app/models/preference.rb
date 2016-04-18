@@ -1,13 +1,11 @@
 class Preference < ActiveRecord::Base
 
   belongs_to :user
-  belongs_to :dwelling
 
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :date_of_birth, presence: true
   validates :gender, presence: true
-  validates :pets, presence: true
   validates :smoking, presence: true, numericality: true, inclusion: { in: -1..1 }
   validates :drinking, presence: true, numericality: true, inclusion: { in: -1..1 }
   validates :music, presence: true, numericality: true, inclusion: { in: -1..1 }
@@ -24,15 +22,20 @@ class Preference < ActiveRecord::Base
   ].freeze
 
   GENDER = [
-    ["Male", "male"],
-    ["Female", "female"],
-    ["Unsure", "unsure"],
+    ["Male", "Male"],
+    ["Female", "Female"],
+    ["Unsure", "Unsure"],
+  ].freeze
+
+  TRUEFALSE = [
+    ["True", true],
+    ["False", false],
   ].freeze
 
   def full_name
     @full_name = "#{first_name} #{last_name}"
   end
-  
+
   def match_rating(preferences2)
     match = 0
     if self.smoking == preferences2.smoking

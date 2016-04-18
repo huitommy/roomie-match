@@ -7,11 +7,13 @@ class PreferencesController < ApplicationController
     @preference = Preference.new
     @dropdown = Preference::DROPDOWN
     @gender = Preference::GENDER
+    @truefalse = Preference::TRUEFALSE
   end
 
   def create
     @dropdown = Preference::DROPDOWN
     @gender = Preference::GENDER
+    @truefalse = Preference::TRUEFALSE
     @preference = current_user.create_preference(preference_params)
     if @preference.save
       flash[:notice] = "Profile Created"
@@ -25,12 +27,14 @@ class PreferencesController < ApplicationController
   def edit
     @dropdown = Preference::DROPDOWN
     @gender = Preference::GENDER
+    @truefalse = Preference::TRUEFALSE
     @preference = Preference.find(params[:id])
   end
 
   def update
     @dropdown = Preference::DROPDOWN
     @gender = Preference::GENDER
+    @truefalse = Preference::TRUEFALSE
     @preference = Preference.find(params[:id])
     if @preference.update(preference_params)
       flash[:notice] = 'Preference was updated successfully'
@@ -57,8 +61,7 @@ class PreferencesController < ApplicationController
       :last_name,
       :date_of_birth,
       :gender,
-      :user_id,
-      :dwelling_id
+      :user_id
     )
   end
 end

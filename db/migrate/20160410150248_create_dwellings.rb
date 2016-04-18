@@ -11,6 +11,7 @@ class CreateDwellings < ActiveRecord::Migration
       t.integer :sq_ft, null: false
       t.integer :rent, null: false
       t.boolean :parking, default: false
+      t.belongs_to :user, null: false
     end
   end
 end

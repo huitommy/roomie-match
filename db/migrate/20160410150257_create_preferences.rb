@@ -10,7 +10,6 @@ class CreatePreferences < ActiveRecord::Migration
       t.integer :parties, null: false
       t.integer :sports, null: false
       t.belongs_to :user, null: false
-      t.belongs_to :dwelling
     end
   end
 end

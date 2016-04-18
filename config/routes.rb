@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   resources :preferences, only: [:new, :create, :edit, :update]
 
-  resources :dwellings, only: [:index]
+  resources :dwellings
 end

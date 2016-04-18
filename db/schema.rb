@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160410205949) do
     t.integer "sq_ft",                     null: false
     t.integer "rent",                      null: false
     t.boolean "parking",   default: false
+    t.integer "user_id",                   null: false
   end
 
   create_table "preferences", force: :cascade do |t|
@@ -39,7 +40,6 @@ ActiveRecord::Schema.define(version: 20160410205949) do
     t.integer "parties",                       null: false
     t.integer "sports",                        null: false
     t.integer "user_id",                       null: false
-    t.integer "dwelling_id"
     t.string  "first_name",                    null: false
     t.string  "last_name",                     null: false
     t.string  "gender",                        null: false
