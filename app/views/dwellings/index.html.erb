@@ -1,7 +1,70 @@
 <h1>Listings</h1>
 
+<table>
+  <th>
+    Address
+  </th>
+  <th>
+    City
+  </th>
+  <th>
+    State
+  </th>
+  <th>
+    Zip Code
+  </th>
+  <th>
+    Category
+  </th>
+  <th>
+    Bedrooms
+  </th>
+  <th>
+    Bathrooms
+  </th>
+  <th>
+    Square Footage
+  </th>
+  <th>
+    Rent
+  </th>
+  <th>
+    Parking
+  </th>
 <% @dwellings.each do |dwelling| %>
-<%= dwelling.city %>
-<%= dwelling.rent %>
-<%= dwelling.bedrooms %>
+  <tr>
+    <td>
+      <%= dwelling.address %>
+    </td>
+    <td>
+      <%= dwelling.city %>
+    </td>
+    <td>
+      <%= dwelling.state %>
+    </td>
+    <td>
+      <%= dwelling.zip_code %>
+    </td>
+    <td>
+      <%= dwelling.category %>
+    </td>
+    <td>
+      <%= dwelling.bedrooms %>
+    </td>
+    <td>
+      <%= dwelling.bathrooms %>
+    </td>
+    <td>
+      <%= dwelling.sq_ft %>
+    </td>
+    <td>
+      <%= dwelling.rent %>
+    </td>
+    <td>
+      <% if dwelling.parking %>
+      <img src="http://www.clipartbest.com/cliparts/dT7/aG4/dT7aG4LT9.png" alt="" />
+      <% end %>
+    </td>
+  </tr>
 <% end %>
+</table>
