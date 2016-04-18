@@ -2,39 +2,24 @@ require 'factory_girl'
 
 FactoryGirl.define do
   factory :user do
-    username "user"
-    email "user@gmail.com"
+    sequence(:username) { |n| "user#{n}" }
+    sequence(:email) { |n| "user#{n}@gmail.com" }
     password "password"
   end
 
   factory :preference do
-    first_name "Evana"
-    last_name "Louden"
-    gender "Female"
+    first_name "John"
+    last_name "Smith"
+    gender "Male"
     date_of_birth "01/01/1945"
-    pets "false"
-    smoking "1"
-    drinking "0"
-    music "0"
-    vegetarian "1"
-    cleanliness "0"
-    parties "0"
-    sports "0"
-    user
-    dwelling
-  end
-
-  factory :dwelling do
-    address "Address at."
-    city "testcity"
-    state "teststate"
-    zip_code "00000"
-    category "Apartment"
-    bedrooms "2"
-    bathrooms "1.5"
-    sq_ft "777"
-    rent "1000"
-    parking true
+    pets true
+    smoking [-1, 0, 1].sample
+    drinking [-1, 0, 1].sample
+    music [-1, 0, 1].sample
+    vegetarian [-1, 0, 1].sample
+    cleanliness [-1, 0, 1].sample
+    parties [-1, 0, 1].sample
+    sports [-1, 0, 1].sample
   end
 
   factory :admin do
