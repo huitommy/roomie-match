@@ -1,6 +1,6 @@
 <h1>Listings</h1>
 
-<table>
+<table class="sortable">
   <th>
     Address
   </th>
@@ -31,40 +31,48 @@
   <th>
     Parking
   </th>
+  <th>
+    RoomieScore
+  </th>
 <% @dwellings.each do |dwelling| %>
-  <tr>
-    <td>
-      <%= dwelling.address %>
-    </td>
-    <td>
-      <%= dwelling.city %>
-    </td>
-    <td>
-      <%= dwelling.state %>
-    </td>
-    <td>
-      <%= dwelling.zip_code %>
-    </td>
-    <td>
-      <%= dwelling.category %>
-    </td>
-    <td>
-      <%= dwelling.bedrooms %>
-    </td>
-    <td>
-      <%= dwelling.bathrooms %>
-    </td>
-    <td>
-      <%= dwelling.sq_ft %>
-    </td>
-    <td>
-      <%= dwelling.rent %>
-    </td>
-    <td>
-      <% if dwelling.parking %>
-      <img src="http://www.clipartbest.com/cliparts/dT7/aG4/dT7aG4LT9.png" alt="" />
-      <% end %>
-    </td>
-  </tr>
+  <% if dwelling.user.preference.pets == current_user.preference.pets %>
+    <tr>
+      <td>
+        <%= dwelling.address %>
+      </td>
+      <td>
+        <%= dwelling.city %>
+      </td>
+      <td>
+        <%= dwelling.state %>
+      </td>
+      <td>
+        <%= dwelling.zip_code %>
+      </td>
+      <td>
+        <%= dwelling.category %>
+      </td>
+      <td>
+        <%= dwelling.bedrooms %>
+      </td>
+      <td>
+        <%= dwelling.bathrooms %>
+      </td>
+      <td>
+        <%= dwelling.sq_ft %>
+      </td>
+      <td>
+        <%= dwelling.rent %>
+      </td>
+      <td>
+        <% if dwelling.parking %>
+        <img src="http://www.clipartbest.com/cliparts/dT7/aG4/dT7aG4LT9.png" alt="" />
+        <% end %>
+      </td>
+      <td>
+        <%= current_user.preference.match_rating(dwelling.user.preference) %>
+      </td>
+    </tr>
+  <% end %>
 <% end %>
 </table>
