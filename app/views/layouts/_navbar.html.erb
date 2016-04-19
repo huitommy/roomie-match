@@ -1,5 +1,4 @@
 <nav class="top-bar">
-
   <ul class="title-area">
     <li class="name">
       <h1><a href="welcome#index">RoomieMatch</a></h1>
@@ -7,8 +6,7 @@
   </ul>
 
   <section class="top-bar-section">
-    <ul class="right">
-
+    <ul class="menu">
       <% if current_user %>
         <li><%= link_to "Profile", edit_user_registration_path %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
