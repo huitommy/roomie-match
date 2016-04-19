@@ -28,6 +28,31 @@ class DwellingsController < ApplicationController
     end
   end
 
+  def edit
+    @states = Dwelling::STATES
+    @bedrooms = Dwelling::BEDROOMS
+    @bathrooms = Dwelling::BATHROOMS
+    @categories = Dwelling::CATEGORIES
+    @truefalse = Preference::TRUEFALSE
+    @dwelling = Dwelling.find(params[:id])
+  end
+
+  def update
+    @states = Dwelling::STATES
+    @bedrooms = Dwelling::BEDROOMS
+    @bathrooms = Dwelling::BATHROOMS
+    @categories = Dwelling::CATEGORIES
+    @truefalse = Preference::TRUEFALSE
+    @dwelling = Dwelling.find(params[:id])
+    if @dwelling.update(dwelling_params)
+      flash[:notice] = 'Listing was updated successfully'
+      redirect_to dwellings_path
+    else
+      flash[:alert] = @dwelling.errors.full_messages.join('. ')
+      render :edit
+    end
+  end
+
   private
 
   def dwelling_params
