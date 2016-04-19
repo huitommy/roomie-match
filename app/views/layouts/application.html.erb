@@ -7,8 +7,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-  
-    <script src="/app/assets/javascripts/sorttable.js"></script>
     <%= csrf_meta_tags %>
   </head>
   <%= render 'layouts/navbar' %>
@@ -28,5 +26,6 @@
         </div>
       </div>
     </div>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
   </body>
 </html>
