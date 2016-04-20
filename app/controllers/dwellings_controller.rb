@@ -1,6 +1,17 @@
 class DwellingsController < ApplicationController
   def index
     @dwellings = Dwelling.all
+    @user = current_user
+    Match.where(user: @user).delete_all
+    @dwellings.each do |dwelling|
+      unless dwelling.user.preference.pets != @user.preference.pets
+        roomie_score = match_rating(@user, dwelling)
+        if roomie_score > 5
+          Match.create(user: @user, dwelling: dwelling, score: roomie_score)
+        end
+      end
+    end
+    @matches = Match.where(user: @user).order(score: :desc)
   end
 
   def new

@@ -34,45 +34,43 @@
   <th>
     RoomieScore
   </th>
-<% @dwellings.each do |dwelling| %>
-  <% if dwelling.user.preference.pets == current_user.preference.pets %>
-    <tr>
-      <td>
-        <%= dwelling.address %>
-      </td>
-      <td>
-        <%= dwelling.city %>
-      </td>
-      <td>
-        <%= dwelling.state %>
-      </td>
-      <td>
-        <%= dwelling.zip_code %>
-      </td>
-      <td>
-        <%= dwelling.category %>
-      </td>
-      <td>
-        <%= dwelling.bedrooms %>
-      </td>
-      <td>
-        <%= dwelling.bathrooms %>
-      </td>
-      <td>
-        <%= dwelling.sq_ft %>
-      </td>
-      <td>
-        <%= dwelling.rent %>
-      </td>
-      <td>
-        <% if dwelling.parking %>
-        <img src="http://www.clipartbest.com/cliparts/dT7/aG4/dT7aG4LT9.png" alt="" />
-        <% end %>
-      </td>
-      <td>
-        <%= current_user.preference.match_rating(dwelling.user.preference) %>
-      </td>
-    </tr>
+<% @matches.each do |match| %>
+  <tr>
+    <td>
+      <%= match.dwelling.address %>
+    </td>
+    <td>
+      <%= match.dwelling.city %>
+    </td>
+    <td>
+      <%= match.dwelling.state %>
+    </td>
+    <td>
+      <%= match.dwelling.zip_code %>
+    </td>
+    <td>
+      <%= match.dwelling.category %>
+    </td>
+    <td>
+      <%= match.dwelling.bedrooms %>
+    </td>
+    <td>
+      <%= match.dwelling.bathrooms %>
+    </td>
+    <td>
+      <%= match.dwelling.sq_ft %>
+    </td>
+    <td>
+      <%= match.dwelling.rent %>
+    </td>
+    <td>
+      <% if match.dwelling.parking %>
+      <img src="http://www.clipartbest.com/cliparts/dT7/aG4/dT7aG4LT9.png" alt="" />
+      <% end %>
+    </td>
+    <td>
+      <%= match.score %>
+    </td>
+  </tr>
   <% end %>
-<% end %>
 </table>
