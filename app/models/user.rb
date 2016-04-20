@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
         :validatable, :authentication_keys => [:login]
   has_one :preference
   has_one :dwelling
+  has_many :matches
 
   validates :email, presence: true, uniqueness: true
   validates :username,
