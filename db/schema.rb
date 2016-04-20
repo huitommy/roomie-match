@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410205949) do
+ActiveRecord::Schema.define(version: 20160420204800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(version: 20160410205949) do
     t.integer "rent",                      null: false
     t.boolean "parking",   default: false
     t.integer "user_id",                   null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.integer "user_id",     null: false
+    t.integer "dwelling_id", null: false
+    t.integer "score",       null: false
   end
 
   create_table "preferences", force: :cascade do |t|

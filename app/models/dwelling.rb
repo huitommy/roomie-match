@@ -1,5 +1,6 @@
 class Dwelling < ActiveRecord::Base
   belongs_to :user
+  has_many :matches
 
   validates :address, presence: true
   validates :city, presence: true
