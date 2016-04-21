@@ -37,7 +37,7 @@
 <% @matches.each do |match| %>
   <tr>
     <td>
-      <%= match.dwelling.address %>
+      <%= link_to "#{match.dwelling.address}", dwelling_path(match.dwelling) %>
     </td>
     <td>
       <%= match.dwelling.city %>
