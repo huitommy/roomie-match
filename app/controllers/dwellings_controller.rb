@@ -67,17 +67,15 @@ class DwellingsController < ApplicationController
   def show
     @dwelling = Dwelling.find(params[:id])
     @score = current_user.matches.find_by(dwelling: @dwelling).score
-    preferences_array = ["smoking", "drinking", "music", "vegetarian", "cleanliness", "parties", "sports"]
-    preferences_array.each do |data|
-    if @dwelling.user.preference.send(data) == current_user.preference.send(data)
-      instance_variable_set("@#{data}", "green")
-    elsif @dwelling.user.preference.send(data) == 0 || current_user.preference.send(data) == 0
-    instance_variable_set("@#{data}", "yellow")
-    else
-      instance_variable_set("@#{data}", "red")
+    PREFERENCES.each do |data|
+      if @dwelling.user.preference.send(data) == current_user.preference.send(data)
+        instance_variable_set("@#{data}", "green")
+      elsif @dwelling.user.preference.send(data) == 0 || current_user.preference.send(data) == 0
+        instance_variable_set("@#{data}", "yellow")
+      else
+        instance_variable_set("@#{data}", "red")
+      end
     end
-  end
-  binding.pry
   end
 
   private
