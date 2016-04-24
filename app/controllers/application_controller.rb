@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  PREFERENCES = [
+    "smoking",
+    "drinking",
+    "music",
+    "vegetarian",
+    "cleanliness",
+    "parties",
+    "sports"
+  ].freeze
+
   def after_sign_in_path_for(resource)
     if current_user.preference
       dwellings_path
@@ -14,54 +24,14 @@ class ApplicationController < ActionController::Base
 
   def match_rating(user, dwelling)
     match = 0
-    if user.preference.smoking == dwelling.user.preference.smoking
-      match += 2
-    elsif user.preference.smoking == 0 || dwelling.user.preference.smoking == 0
-      match += 1
-    else
-      match -= 2
-    end
-    if user.preference.drinking == dwelling.user.preference.drinking
-      match += 2
-    elsif user.preference.drinking == 0 || dwelling.user.preference.drinking == 0
-      match += 1
-    else
-      match -= 2
-    end
-    if user.preference.music == dwelling.user.preference.music
-      match += 2
-    elsif user.preference.music == 0 || dwelling.user.preference.music == 0
-      match += 1
-    else
-      match -= 2
-    end
-    if user.preference.vegetarian == dwelling.user.preference.vegetarian
-      match += 2
-    elsif user.preference.vegetarian == 0 || dwelling.user.preference.vegetarian == 0
-      match += 1
-    else
-      match -= 2
-    end
-    if user.preference.cleanliness == dwelling.user.preference.cleanliness
-      match += 2
-    elsif user.preference.cleanliness == 0 || dwelling.user.preference.cleanliness == 0
-      match += 1
-    else
-      match -= 2
-    end
-    if user.preference.parties == dwelling.user.preference.parties
-      match += 2
-    elsif user.preference.parties == 0 || dwelling.user.preference.parties == 0
-      match += 1
-    else
-      match -= 2
-    end
-    if user.preference.sports == dwelling.user.preference.sports
-      match += 2
-    elsif user.preference.sports == 0 || dwelling.user.preference.sports == 0
-      match += 1
-    else
-      match -= 2
+    PREFERENCES.each do |data|
+      if user.preference.send(data) == dwelling.user.preference.send(data)
+        match += 2
+      elsif user.preference.send(data) == 0 || dwelling.user.preference.send(data) == 0
+        match += 1
+      else
+        match -= 2
+      end
     end
     match
   end
