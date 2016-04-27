@@ -32,7 +32,7 @@ class DwellingsController < ApplicationController
     @dwelling = current_user.create_dwelling(dwelling_params)
     if @dwelling.save
       flash[:notice] = "Listing Added"
-      redirect_to dwellings_path
+      redirect_to new_preference_path
     else
       flash[:alert] = @dwelling.errors.full_messages.join(". ")
       render :new
