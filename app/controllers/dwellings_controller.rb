@@ -68,7 +68,9 @@ class DwellingsController < ApplicationController
     @dwelling = Dwelling.find(params[:id])
     @score = current_user.matches.find_by(dwelling: @dwelling).score
     PREFERENCES.each do |data|
-      if @dwelling.user.preference.send(data) == current_user.preference.send(data)
+      if @dwelling.user.preference.send(data) == 0 && current_user.preference.send(data) == 0
+        instance_variable_set("@#{data}", "white")
+      elsif @dwelling.user.preference.send(data) == current_user.preference.send(data)
         instance_variable_set("@#{data}", "green")
       elsif @dwelling.user.preference.send(data) == 0 || current_user.preference.send(data) == 0
         instance_variable_set("@#{data}", "yellow")

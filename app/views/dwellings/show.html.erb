@@ -1,34 +1,42 @@
-<h2> Match Score: <%= @score %></h2>
-<ul>
-  <li>Listing Info:</li>
-  <li>City: <%= @dwelling.city %></li>
-  <li>State: <%= @dwelling.state %></li>
-  <li>Household: <%= @dwelling.category %></li>
-  <li>Bedrooms: <%= @dwelling.bedrooms %></li>
-  <li>Bathrooms: <%= @dwelling.bathrooms %></li>
-  <li>Rent: <%= @dwelling.rent %></li>
-  <li>Square Feet: <%= @dwelling.sq_ft %></li>
-</ul>
-<h3> Match Info: </h3>
-<div class="dwelling-right">
-  <ul>
-    <li>Smoking: <%= @dwelling.user.preference.smoking %></li>
-    <li>Drinking: <%= @dwelling.user.preference.drinking %></li>
-    <li>Music: <%= @dwelling.user.preference.music %></li>
-    <li>Vegetarian: <%= @dwelling.user.preference.vegetarian  %></li>
-    <li>Cleanliness: <%= @dwelling.user.preference.cleanliness %></li>
-    <li>Parties: <%= @dwelling.user.preference.parties %></li>
-    <li>Sports: <%= @dwelling.user.preference.sports %></li>
-  </ul>
-</div>
-<div class="dwelling-left">
-  <ul>
-    <li>Smoking: <%= current_user.preference.smoking %></li>
-    <li>Drinking: <%= current_user.preference.drinking %></li>
-    <li>Music: <%= current_user.preference.music %></li>
-    <li>Vegetarian: <%= current_user.preference.vegetarian  %></li>
-    <li>Cleanliness: <%= current_user.preference.cleanliness %></li>
-    <li>Parties: <%= current_user.preference.parties %></li>
-    <li>Sports: <%= current_user.preference.sports %></li>
-  </ul>
+<div class="small-12 columns">
+  <div class="small-12 columns w3-card-12">
+    <h2> Match Score: <%= @score %></h2>
+    <ul>
+      <li>Listing Info:</li>
+      <li>City: <%= @dwelling.city %></li>
+      <li>State: <%= @dwelling.state %></li>
+      <li>Household: <%= @dwelling.category %></li>
+      <li>Bedrooms: <%= @dwelling.bedrooms %></li>
+      <li>Bathrooms: <%= @dwelling.bathrooms %></li>
+      <li>Rent: <%= @dwelling.rent %></li>
+      <li>Square Feet: <%= @dwelling.sq_ft %></li>
+    </ul>
+  </div>
+  <div class="matches small-12 columns w3-card-12">
+    <h3> Match Info: </h3>
+    <div class="dwelling-right small-6 columns">
+      <h4> House preferences </h4>
+      <ul>
+        <li class="<%= @smoking %>">Smoking</li>
+        <li class="<%= @drinking %>">Drinking</li>
+        <li class="<%= @music %>">Music</li>
+        <li class="<%= @vegetarian %>">Vegetarian</li>
+        <li class="<%= @cleanliness %>">Cleanliness</li>
+        <li class="<%= @parties %>">Parties</li>
+        <li class="<%= @sports %>">Sports</li>
+      </ul>
+    </div>
+    <div class="dwelling-left small-6 columns">
+      <h4> Your preferences </h4>
+      <ul>
+        <li class="<%= @smoking %>">Smoking</li>
+        <li class="<%= @drinking %>">Drinking</li>
+        <li class="<%= @music %>">Music</li>
+        <li class="<%= @vegetarian %>">Vegetarian</li>
+        <li class="<%= @cleanliness %>">Cleanliness</li>
+        <li class="<%= @parties %>">Parties</li>
+        <li class="<%= @sports %>">Sports</li>
+      </ul>
+    </div>
+  </div>
 </div>

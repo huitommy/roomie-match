@@ -15,3 +15,53 @@
  *= require foundation_and_overrides
 
  */
+
+$green: #4dff4d;
+$yellow: #ffff4d;
+$red: #ff471a;
+$white: #ffffff;
+
+.matches{
+  h3{
+    text-align: center;
+  }
+}
+
+.dwelling-right{
+  text-align: center;
+  li{
+    border-bottom: 0.1em;
+    border-style: outset;
+  }
+}
+.dwelling-left{
+  text-align: center;
+  li{
+    border-bottom: 0.1em;
+    border-style: outset;
+  }
+}
+
+.green{
+  background-color: $green;
+  text-align: center;
+  list-style-type: none;
+}
+
+.yellow{
+  background-color: $yellow;
+  text-align: center;
+  list-style-type: none;
+}
+
+.red{
+  background-color: $red;
+  text-align: center;
+  list-style-type: none;
+}
+
+.white{
+  background-color: $white;
+  text-align: center;
+  list-style-type: none;
+}
